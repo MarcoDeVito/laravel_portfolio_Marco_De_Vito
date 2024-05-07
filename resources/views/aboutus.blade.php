@@ -19,8 +19,8 @@
 
     <ul class="nav nav-pills me-3">
         <li class="nav-item"><a href="{{ route('homepage') }}" class="nav-link" aria-current="page">Home</a></li>
-        <li class="nav-item"><a href="{{ route('aboutus') }}" class="nav-link">Chi Siamo</a></li>
-        <li class="nav-item "><a href="{{ route('service') }}" class="nav-link active">Servizi</a></li>
+        <li class="nav-item"><a href="{{ route('aboutus') }}" class="nav-link active">Chi Siamo</a></li>
+        <li class="nav-item "><a href="{{ route('service') }}" class="nav-link ">Servizi</a></li>
 
     </ul>
 </header>
