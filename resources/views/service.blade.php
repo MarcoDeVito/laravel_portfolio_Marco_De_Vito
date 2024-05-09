@@ -25,24 +25,24 @@
         </ul>
     </header>
 
-    <h1 class="my-4 mx-3">Servizi</h1>
-    <ul>
-        <div class="d-flex flex-wrap">
-            @foreach ($servizi as $element)
-                <div class="card mx-5 my-3 bg-info-subtle" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $element['name'] }}</h5>
-                        <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic minima itaque
-                            velit quod ad tempora quisquam, modi quasi sunt .</p>
-                        <a href="{{ route('detail', ['service' => $element['uri'], 'name' => $element['name']]) }}"
-                            class="btn btn-primary">Vedi dettagli</a>
+    <section class="my-5">
+        <h1 class="my-4 mx-5">Servizi</h1>
+            <div class="d-flex flex-wrap justify-content-center ">
+                @foreach ($servizi as $element)
+                    <div class="card mx-5 my-3 bg-info-subtle" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $element['name'] }}</h5>
+                            <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic minima itaque
+                                velit quod ad tempora quisquam, modi quasi sunt .</p>
+                            <a href="{{ route('detail', ['service' => $element['uri']])}}"
+                                class="btn btn-primary">Vedi dettagli</a>
+                        </div>
                     </div>
-                </div>
-            @endforeach
-        </div>
+                @endforeach
+            </div>
+    </section>
 
 
-    </ul>
 
     <footer class="w-100">
         <ul class="nav justify-content-center border-bottom shadow-sm pb-3 mb-3">
