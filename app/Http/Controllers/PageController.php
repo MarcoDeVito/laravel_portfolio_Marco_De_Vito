@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class PageController extends Controller
 {
@@ -70,5 +72,39 @@ class PageController extends Controller
             }
         }
         abort(404);
+    }
+
+    public function contact()
+    {
+        return view('contact');
+    }
+
+    public function send(Request $request)
+    {
+
+        $request->validate(
+            [
+                'fullname' => 'required',
+                'email' => 'required|email',
+                'phone' => 'numeric|nullable',
+                'message' => 'required|min:10',
+            ]
+        );
+        
+        // dd($request->all());
+        $data = [
+            'nome' => $request->fullname,
+            'indirizzo' => $request->email,
+            'telefono' => $request->phone,
+            'messaggio' => $request->message,
+        ];
+        
+        Mail::to('marco.devito93@gmail.com')->send(new ContactMail($data));
+        return redirect()->route('thank_you');
+    }
+
+    public function thank_you()
+    {
+        return view('thank_you');
     }
 }
